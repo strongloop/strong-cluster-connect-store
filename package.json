@@ -16,6 +16,13 @@
     "type": "git",
     "url": "https://github.com/strongloop/strong-cluster-connect-store.git"
   },
+  "keywords": [
+    "connect",
+    "express",
+    "cluster",
+    "session",
+    "store"
+  ],
   "author": {
     "name": "Miroslav Bajtos",
     "email": "miroslav@strongloop.com"
@@ -29,7 +36,9 @@
     "jshint": "~2.0.1",
     "blanket": "~1.1.4",
     "chai": "~1.7.2",
-    "connect": "~2.8.4"
+    "connect": "~2.8.4",
+    "request": "~2.22.0",
+    "async": "~0.2.9"
   },
   "engines": {
     "node": ">=0.10.0"
