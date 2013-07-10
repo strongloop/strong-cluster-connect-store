@@ -1,0 +1,37 @@
+{
+  "name": "strong-cluster-connect-store",
+  "version": "0.1.0",
+  "description": "Implementation of connect session store using node's native cluster messaging",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "blanket": {
+      "pattern": "//^((?!(node_modules|test)).)*$/"
+    },
+    "coverage": "./node_modules/.bin/mocha -r blanket -R html-cov > coverage.html",
+    "test": "mocha --reporter spec",
+    "lint": "./node_modules/.bin/jshint *.js test lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/strongloop/strong-cluster-connect-store.git"
+  },
+  "author": {
+    "name": "Miroslav Bajtos",
+    "email": "miroslav@strongloop.com"
+  },
+  "dependencies": {
+    "sl-mq": "0.0.3",
+    "strong-store-cluster": "~0.1.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.9.0",
+    "jshint": "~2.0.1",
+    "blanket": "~1.1.4",
+    "chai": "~1.7.2",
+    "connect": "~2.8.4"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}
