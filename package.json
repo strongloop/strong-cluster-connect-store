@@ -27,8 +27,7 @@
     "name": "Miroslav Bajtos",
     "email": "miroslav@strongloop.com"
   },
-  "dependencies": {
-    "sl-mq": "0.0.3",
+  "peerDependencies": {
     "strong-store-cluster": "~0.1.0"
   },
   "devDependencies": {
@@ -37,6 +36,7 @@
     "blanket": "~1.1.4",
     "chai": "~1.7.2",
     "connect": "~2.8.4",
+    "strong-store-cluster": "latest",
     "request": "~2.22.0",
     "async": "~0.2.9"
   },
