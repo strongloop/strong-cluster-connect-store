@@ -13,7 +13,7 @@ sessions in connect/express based applications running in a node cluster.
 
 - Supports both connect and express.
 - No dependencies on external services.
-- Module is shipped without socket.io, it will use *your* version of connect
+- Module is shipped without connect, it will use *your* version of connect
   or express.
 - Covered by unit-tests.
 
