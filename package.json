@@ -8,7 +8,7 @@
     "blanket": {
       "pattern": "//^((?!(node_modules|test)).)*$/"
     },
-    "coverage": "./node_modules/.bin/mocha -r blanket -R html-cov > coverage.html",
+    "coverage": "./node_modules/.bin/mocha -r blanket -R html-cov > coverage_strong-cluster-connect-store.html",
     "test": "mocha --reporter spec",
     "lint": "./node_modules/.bin/jshint *.js test lib"
   },
@@ -33,7 +33,7 @@
   "devDependencies": {
     "mocha": "~1.9.0",
     "jshint": "~2.0.1",
-    "blanket": "~1.1.4",
+    "blanket": "latest",
     "chai": "~1.7.2",
     "connect": "~2.8.4",
     "strong-store-cluster": "latest",
