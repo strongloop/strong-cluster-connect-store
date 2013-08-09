@@ -1,0 +1,8 @@
+{
+  "content": [
+    "README.md",
+    {"title": "API", "depth": 2},
+    "lib/cluster-store.js"
+  ],
+  "codeSectionDepth": 3
+}
