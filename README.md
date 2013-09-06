@@ -21,13 +21,13 @@ sessions in connect/express based applications running in a node cluster.
 
 ### Installation
 
-```Shell
+```sh
 $ npm install strong-cluster-connect-store
 ```
 
 ### Configuration - connect
 
-```Javascript
+```js
 var connect = require('connect');
 var ClusterStore = require('strong-cluster-connect-store')(connect);
 
@@ -39,7 +39,7 @@ app
 
 ### Configuration - express
 
-```Javascript
+```js
 var express = require('express');
 var ClusterStore = require('strong-cluster-connect-store')(express);
 
@@ -58,7 +58,7 @@ files, you must explicitly require this module in your master source file.
 Optionally, you can call `setup()` to make it more obvious why you are loading
 a module that is not used anywhere else.
 
-```Javascript
+```js
 // master.js
 
 var cluster = require('cluster');
