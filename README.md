@@ -39,7 +39,7 @@ app
 
 ### Configuration - express
 
-```js
+```javascript
 var express = require('express');
 var ClusterStore = require('strong-cluster-connect-store')(express);
 
@@ -58,7 +58,7 @@ files, you must explicitly require this module in your master source file.
 Optionally, you can call `setup()` to make it more obvious why you are loading
 a module that is not used anywhere else.
 
-```js
+```javascript
 // master.js
 
 var cluster = require('cluster');
