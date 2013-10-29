@@ -1,6 +1,6 @@
 {
   "name": "strong-cluster-connect-store",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Implementation of connect session store using node's native cluster messaging",
   "license": "MIT",
   "main": "index.js",
