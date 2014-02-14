@@ -2,7 +2,10 @@
   "name": "strong-cluster-connect-store",
   "version": "0.1.4",
   "description": "Implementation of connect session store using node's native cluster messaging",
-  "license": "MIT",
+  "license": {
+    "name": "Dual MIT/StrongLoop",
+    "url": "https://github.com/strongloop/strong-cluster-connect-store/blob/master/LICENSE"
+  },
   "main": "index.js",
   "scripts": {
     "test": "mocha --reporter spec",
