@@ -1,4 +1,4 @@
-# Connect Session Store for Cluster
+# express-session store for node cluster
 
 ## Overview
 
