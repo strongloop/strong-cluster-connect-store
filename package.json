@@ -36,9 +36,16 @@
     "connect": "~2.8.4",
     "strong-store-cluster": "latest",
     "request": "~2.22.0",
-    "async": "~0.2.9"
+    "async": "~0.2.9",
+    "express": "~4.0.0",
+    "express-session": "~1.0.2",
+    "body-parser": "~1.0.2",
+    "cookie-parser": "~1.0.1"
   },
   "engines": {
     "node": ">=0.10.0"
+  },
+  "dependencies": {
+    "express-session": "~1.0.2"
   }
 }
