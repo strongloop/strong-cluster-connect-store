@@ -1,28 +1,112 @@
 # Connect Session Store for Cluster
 
-[![Build Status](https://travis-ci.org/strongloop/strong-cluster-connect-store.png?branch=master)](https://travis-ci.org/strongloop/strong-cluster-connect-store)
-[![NPM version](https://badge.fury.io/js/strong-cluster-connect-store.png)](http://badge.fury.io/js/strong-cluster-connect-store)
+[![Build Status](https://travis-ci.org/strongloop/strong-cluster-express-store.png?branch=master)](https://travis-ci.org/strongloop/strong-cluster-express-store)
+[![NPM version](https://badge.fury.io/js/strong-cluster-express-store.png)](http://badge.fury.io/js/strong-cluster-express-store)
 
 ## Overview
 
-Strong-cluster-connect-store is an implementation of connect session store
+strong-cluster-express-store extends the functionality of the
+[express-session](https://github.com/expressjs/session) store
 using node's native cluster messaging. It provides an easy way for using
-sessions in connect/express based applications running in a node cluster.
+sessions in express-based applications running in a node cluster.
 
 Features:
 
-- Supports both connect and express.
-- No dependencies on external services.
-- Module is shipped without connect, it will use *your* version of connect
-  or express.
+- Supports express
+- Module is shipped without express, it will use *your* version of express
 - Covered by unit-tests.
  
-## Documentation
-
-For complete documentation, see [StrongLoop Documentation | Strong Cluster Connect Store](http://docs.strongloop.com/display/DOC/Strong+Cluster+Connect+Store).
-
 ## Installation
 
 ```sh
-$ npm install strong-cluster-connect-store
+$ npm install strong-cluster-express-store
 ```
+
+## Configuration for Express
+
+```
+var express = require('express');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var bodyParser = require('body-parser');
+var ClusterStore = require('strong-cluster-express-store');
+ 
+var app = express();
+app
+  .use(cookieParser())
+  .use(session({ store: new ClusterStore(), secret: 'keyboard cat' }))
+  .use(bodyParser.json());
+```
+
+## Setting up the master process
+
+```
+// The master process only executes this code
+var cluster = require('cluster');
+var numCPUs = require('os').cpus().length;
+ 
+require('strong-cluster-express-store').setup();
+ 
+// fork the workers
+for (var i = 0; i < numCPUs; i++) {
+    cluster.fork();
+}
+// workers and master run from this point onward
+ 
+// setup the workers
+if (cluster.isWorker) {
+    [...]
+}
+```
+
+## Using strong-cluster-express-store
+
+```
+'use strict';
+var express = require('express');
+var cluster = require('cluster');
+var numCPUs = require('os').cpus().length;
+var ClusterStore = require('strong-cluster-express-store');
+ 
+if (cluster.isMaster) {
+    // The cluster master executes this code
+     
+    ClusterStore.setup();
+   
+    // Create a worker for each CPU
+    for (var i=0; i<numCPUs; i++) {
+        cluster.fork();
+      }
+   
+    cluster.on('online', function(worker) {
+          console.log('Worker ' + worker.id + ' is online.');
+        });
+   
+    cluster.on('exit', function(worker, code, signal) {
+          console.log('worker ' + worker.id + ' died with signal',signal);
+        });
+} else {
+    // The cluster workers execute this code
+     
+    var app = express();
+    app.use(express.cookieParser());
+   
+    app.use(express.session(
+            { store: new ClusterStore(), secret: 'super-cool' }
+          ));
+   
+    app.get('/hello', function(req, res) {
+          var msg;
+          if (req.session.visited)
+            msg = {msg: 'Hello again from worker '+cluster.worker.id};
+          else
+            msg = {msg: 'Hello from worker '+cluster.worker.id};
+       
+          req.session.visited = '1';
+          res.json(200, msg);
+        });
+    app.listen(8080);
+}
+```
+
+
