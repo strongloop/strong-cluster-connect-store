@@ -1,10 +1,10 @@
 {
-  "name": "strong-cluster-connect-store",
-  "version": "0.1.4",
-  "description": "Implementation of connect session store using node's native cluster messaging",
+  "name": "strong-cluster-express-store",
+  "version": "0.0.0",
+  "description": "Extension of express-session store using node's native cluster messaging",
   "license": {
     "name": "Dual MIT/StrongLoop",
-    "url": "https://github.com/strongloop/strong-cluster-connect-store/blob/master/LICENSE"
+    "url": "https://github.com/strongloop/strong-cluster-express-store/blob/master/LICENSE"
   },
   "main": "index.js",
   "scripts": {
@@ -13,18 +13,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/strongloop/strong-cluster-connect-store.git"
+    "url": "https://github.com/strongloop/strong-cluster-express-store.git"
   },
   "keywords": [
-    "connect",
     "express",
     "cluster",
     "session",
     "store"
   ],
   "author": {
-    "name": "Miroslav Bajtos",
-    "email": "miroslav@strongloop.com"
+    "name": "Daniel Bidulock",
+    "email": "daniel@capitolhill.ca"
   },
   "peerDependencies": {
     "strong-store-cluster": "~0.1.0"
@@ -33,7 +32,6 @@
     "mocha": "~1.9.0",
     "jshint": "~2.0.1",
     "chai": "~1.7.2",
-    "connect": "~2.8.4",
     "strong-store-cluster": "latest",
     "request": "~2.22.0",
     "async": "~0.2.9",
