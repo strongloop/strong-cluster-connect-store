@@ -1,8 +1,5 @@
 # Connect Session Store for Cluster
 
-[![Build Status](https://travis-ci.org/strongloop/strong-cluster-express-store.png?branch=master)](https://travis-ci.org/strongloop/strong-cluster-express-store)
-[![NPM version](https://badge.fury.io/js/strong-cluster-express-store.png)](http://badge.fury.io/js/strong-cluster-express-store)
-
 ## Overview
 
 strong-cluster-express-store extends the functionality of the
@@ -109,4 +106,7 @@ if (cluster.isMaster) {
 }
 ```
 
+## Licence
+
+Dual MIT/StrongLoop licence
 
