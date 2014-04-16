@@ -19,14 +19,14 @@ Features:
 $ npm install strong-cluster-express-store
 ```
 
-## Configuration for Express
+## Configuration for Express 4.x
 
 ```
 var express = require('express');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var bodyParser = require('body-parser');
-var ClusterStore = require('strong-cluster-express-store');
+var ClusterStore = require('strong-cluster-express-store')(session);
  
 var app = express();
 app
@@ -63,7 +63,8 @@ if (cluster.isWorker) {
 var express = require('express');
 var cluster = require('cluster');
 var numCPUs = require('os').cpus().length;
-var ClusterStore = require('strong-cluster-express-store');
+var session = require('express-session');
+var ClusterStore = require('strong-cluster-express-store')(session);
  
 if (cluster.isMaster) {
     // The cluster master executes this code
