@@ -1,6 +1,6 @@
 {
   "content": [
-    {"title": "Strong Cluster Connect Store API", "depth": 2},
+    {"title": "Strong Cluster Express Store API", "depth": 2},
     "lib/cluster-store.js"
   ],
   "codeSectionDepth": 3

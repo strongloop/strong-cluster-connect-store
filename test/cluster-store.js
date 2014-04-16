@@ -1,22 +1,31 @@
 var cluster = require('cluster');
 var http = require('http');
 var expect = require('chai').expect;
-var connect = require('connect');
+var express = require('express');
 var request = require('request');
 var async = require('async');
-var ClusterStore = require('..')(connect);
+
+var Session = require('express-session');
+var ClusterStore = require('..')(Session);
+var CookieParser = require('cookie-parser');
+var BodyParser = require('body-parser');
+
+//var ClusterStore = require('..');
+//var CookieParser = require('cookie-parser');
+//var Session = require('express-session');
+//var BodyParser = require('body-parser');
 
 var workerUrl;
 
-// verify we can call setup without connect in master and workers
+// verify we can call setup without express in master and workers
 require('..').setup();
 
 if (cluster.isWorker) {
-  startConnectServer();
+  startExpressServer();
   return;
 }
 
-describe('clustered connect server', function() {
+describe('clustered express server', function() {
   before(setupWorkers);
   after(stopWorkers);
 
@@ -122,12 +131,12 @@ function stopWorkers(done) {
   cluster.disconnect(done);
 }
 
-function startConnectServer() {
+function startExpressServer() {
   var PORT = 0; // Let the OS pick any available port
-  var app = connect()
-    .use(connect.cookieParser())
-    .use(connect.session({ store: new ClusterStore(), secret: 'a-secret' }))
-    .use(connect.json())
+  var app = express()
+    .use(CookieParser())
+    .use(Session({ store: new ClusterStore(), secret: 'a-secret' }))
+    .use(BodyParser.json())
     .use(requestHandler);
 
   var server = http.createServer(app).listen(PORT);
