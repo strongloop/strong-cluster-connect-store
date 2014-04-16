@@ -1,6 +1,6 @@
 {
   "name": "strong-cluster-express-store",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Extension of express-session store using node's native cluster messaging",
   "license": {
     "name": "Dual MIT/StrongLoop",
