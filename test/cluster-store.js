@@ -4,10 +4,16 @@ var expect = require('chai').expect;
 var express = require('express');
 var request = require('request');
 var async = require('async');
-var ClusterStore = require('..');
-var CookieParser = require('cookie-parser');
+
 var Session = require('express-session');
+var ClusterStore = require('..')(Session);
+var CookieParser = require('cookie-parser');
 var BodyParser = require('body-parser');
+
+//var ClusterStore = require('..');
+//var CookieParser = require('cookie-parser');
+//var Session = require('express-session');
+//var BodyParser = require('body-parser');
 
 var workerUrl;
 
