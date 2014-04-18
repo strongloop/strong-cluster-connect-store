@@ -1,10 +1,13 @@
 var cluster = require('cluster');
 var http = require('http');
 var expect = require('chai').expect;
-var connect = require('connect');
+var express = require('express');
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 var request = require('request');
 var async = require('async');
-var ClusterStore = require('..')(connect);
+var ClusterStore = require('..')(session);
 
 var workerUrl;
 
@@ -124,10 +127,10 @@ function stopWorkers(done) {
 
 function startConnectServer() {
   var PORT = 0; // Let the OS pick any available port
-  var app = connect()
-    .use(connect.cookieParser())
-    .use(connect.session({ store: new ClusterStore(), secret: 'a-secret' }))
-    .use(connect.json())
+  var app = express()
+    .use(cookieParser())
+    .use(session({ store: new ClusterStore(), secret: 'a-secret', key: 'sid' }))
+    .use(bodyParser.json())
     .use(requestHandler);
 
   var server = http.createServer(app).listen(PORT);
