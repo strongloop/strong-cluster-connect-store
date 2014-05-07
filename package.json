@@ -33,10 +33,13 @@
     "mocha": "~1.9.0",
     "jshint": "~2.0.1",
     "chai": "~1.7.2",
-    "connect": "~2.8.4",
+    "cookie-parser": "^1.0.1",
     "strong-store-cluster": "latest",
     "request": "~2.22.0",
-    "async": "~0.2.9"
+    "async": "~0.2.9",
+    "express-session": "^1.0.2",
+    "express": "^4.1.1",
+    "body-parser": "^1.0.2"
   },
   "engines": {
     "node": ">=0.10.0"
