@@ -1,14 +1,13 @@
 {
   "name": "strong-cluster-connect-store",
-  "version": "0.1.4",
+  "version": "1.0.0",
   "description": "Implementation of connect session store using node's native cluster messaging",
-  "license": "MIT",
+  "license": {
+    "name": "Dual MIT/StrongLoop",
+    "url": "https://github.com/strongloop/strong-cluster-connect-store/blob/master/LICENSE"
+  },
   "main": "index.js",
   "scripts": {
-    "blanket": {
-      "pattern": "//^((?!(node_modules|test)).)*$/"
-    },
-    "coverage": "./node_modules/.bin/mocha -r blanket -R html-cov > coverage_strong-cluster-connect-store.html",
     "test": "mocha --reporter spec",
     "lint": "./node_modules/.bin/jshint *.js test lib"
   },
@@ -33,12 +32,14 @@
   "devDependencies": {
     "mocha": "~1.9.0",
     "jshint": "~2.0.1",
-    "blanket": "latest",
     "chai": "~1.7.2",
-    "connect": "~2.8.4",
+    "cookie-parser": "^1.0.1",
     "strong-store-cluster": "latest",
     "request": "~2.22.0",
-    "async": "~0.2.9"
+    "async": "~0.2.9",
+    "express-session": "^1.0.2",
+    "express": "^4.1.1",
+    "body-parser": "^1.0.2"
   },
   "engines": {
     "node": ">=0.10.0"
