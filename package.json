@@ -1,6 +1,6 @@
 {
   "name": "strong-cluster-connect-store",
-  "version": "0.1.4",
+  "version": "1.0.0",
   "description": "Implementation of connect session store using node's native cluster messaging",
   "license": {
     "name": "Dual MIT/StrongLoop",
