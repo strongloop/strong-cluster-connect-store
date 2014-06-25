@@ -19,7 +19,7 @@ Features:
  
 ## Documentation
 
-For complete documentation, see [StrongLoop Documentation | Strong Cluster Connect Store](http://docs.strongloop.com/display/DOC/Strong+Cluster+Connect+Store).
+For complete documentation, see [StrongLoop Documentation | Strong Cluster Connect Store](http://docs.strongloop.com/display/SOPS/Strong+Cluster+Connect+Store).
 
 ## Installation
 
