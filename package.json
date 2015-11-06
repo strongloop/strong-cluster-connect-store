@@ -1,6 +1,6 @@
 {
   "name": "strong-cluster-connect-store",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Implementation of connect session store using node's native cluster messaging",
   "license": "Artistic-2.0",
   "main": "index.js",
