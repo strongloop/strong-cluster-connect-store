@@ -24,14 +24,14 @@
     "email": "miroslav@strongloop.com"
   },
   "peerDependencies": {
-    "strong-store-cluster": "~0.1.0"
+    "strong-store-cluster": "^1.x"
   },
   "devDependencies": {
     "mocha": "~1.9.0",
     "jshint": "~2.0.1",
     "chai": "~1.7.2",
     "cookie-parser": "^1.0.1",
-    "strong-store-cluster": "latest",
+    "strong-store-cluster": "^1.x",
     "request": "~2.22.0",
     "async": "~0.2.9",
     "express-session": "^1.0.2",
