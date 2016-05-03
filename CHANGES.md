@@ -1,4 +1,12 @@
-2015-11-06, Version 1.0.2
+2016-05-03, Version 1.0.3
+=========================
+
+ * insert/update copyright notices (Ryan Graham)
+
+ * relicense as Artistic-2.0 only (Ryan Graham)
+
+
+2015-11-05, Version 1.0.2
 =========================
 
  * Update strong-store-cluster peerdep to 1.x (Sam Roberts)
