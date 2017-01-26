@@ -16,6 +16,8 @@ Features:
 - Module is shipped without connect, it will use *your* version of connect
   or express.
 - Covered by unit-tests.
+
+See also [API documentation](http://apidocs.strongloop.com/strong-cluster-connect-store/).
  
 ## Installation
 
