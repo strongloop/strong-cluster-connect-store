@@ -73,3 +73,55 @@ require('strong-cluster-connect-store').setup();
 // etc.
 }
 ```
+
+### Using Strong Cluster Connect Store
+
+The following example assumes you have set up Strong Cluster Connect Store for Express and have run the steps above.
+
+```javascript
+'use strict';
+var express = require('express');
+var cluster = require('cluster');
+var numCPUs = require('os').cpus().length;
+var ClusterStore = require('strong-cluster-connect-store')(express.session);
+ 
+if (cluster.isMaster) {
+  // The cluster master executes this code
+ 
+  ClusterStore.setup();
+ 
+  // Create a worker for each CPU
+  for (var i=0; i<numCPUs; i++) {
+    cluster.fork();
+  }
+ 
+  cluster.on('online', function(worker) {
+    console.log('Worker ' + worker.id + ' is online.');
+  });
+ 
+  cluster.on('exit', function(worker, code, signal) {
+    console.log('worker ' + worker.id + ' died with signal',signal);
+  });
+} else {
+  // The cluster workers execute this code
+ 
+  var app = express();
+  app.use(express.cookieParser());
+ 
+  app.use(express.session(
+    { store: new ClusterStore(), secret: 'super-cool' }
+  ));
+ 
+  app.get('/hello', function(req, res) {
+    var msg;
+    if (req.session.visited)
+      msg = {msg: 'Hello again from worker '+cluster.worker.id};
+    else
+      msg = {msg: 'Hello from worker '+cluster.worker.id};
+ 
+    req.session.visited = '1';
+    res.json(200, msg);
+  });
+  app.listen(8080);
+}
+```
